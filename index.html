@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = 'en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modified Billiard Ball Simulation</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">  
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  
+  <body>
+    <h1 class="fav-header">Modified Billiard Ball Simulation</h1>
+    <h2 class="sub-header">A Mathematics Study by Jared Kettinger and Matthew Bennett</h2><br>
+      
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <fieldset>
+            <legend id="legend">Data Options</legend>
+            <p><input type="checkbox" id="doDirect" name="directEntry" value="direct">Enter By Numerator and Divisor</p>
+            <table>
+              <tr id="safeCheck" value="unSafe"></tr>
+              <tr id="NumeratorEntry"></tr>
+              <tr id="DivisorEntry"></tr>
+              <tr id="DirectEntry">
+                <td><label for="f-num">Number: </label></td>
+                <td><input type="number" name="num" id="f-numb" placeholder="0.36787944117" step="0.0001"/></td>
+                <td><label id="Num"></label></td>
+              </tr>
+              <tr>
+                <td><label for="f-iterations">Number of Reflections: </label></td>
+                <td><input type="text" name="num-iterations" id="f-iterations" value="100"/></td>
+              </tr>
+              <tr>
+                <td><label for="f-border-color">Shape Outline Color: </label></td>
+                <td><select name="border-color" id="f-border-color">
+                  <option value="#ff1a1a">Red</option>
+                  <option value="#FFFFFF">White</option>
+                  <option value=#1a75ff>Blue</option>
+                  <option value="#00ff00">Green</option>
+                </select></td>
+              </tr>
+              <tr>
+                <td><label for="f-line-color">Reflection Line Color: </label></td>
+                <td><select name="line-color" id="f-line-color">
+                  <option value="#FFFFFF">White</option>
+                  <option value="#ff1a1a">Red</option>
+                  <option value=#1a75ff>Blue</option>
+                  <option value="#00ff00">Green</option>
+                </select></td>
+              </tr>
+            </table>
+            <input id="btn-submit" type="submit" value="Begin Simulation"/>
+          </fieldset>
+        </div>
+        <div class="col-md-8">
+          <canvas id="triangleCanvas" width="650" height="660"></canvas>
+        </div>
+      </div>
+    </div>
+    <script src="verify.js"></script>
+    <script src="draw-sim.js"></script>
+  </body>
+</html>
+
