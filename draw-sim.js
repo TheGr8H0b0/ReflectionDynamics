@@ -77,8 +77,6 @@ function startWithLine(x1,y1,ang) {
                 }
             }
         }
-        //console.log("Line #" + i + " has: " + numZeroDistCollisions);
-        console.log(currentLine);
         if (collissionPoint == null || numZeroDistCollisions >= 3) {
             numLines = i;
         } else {
@@ -173,9 +171,6 @@ function findIntersection(line1, line2) {
         if (signY === 0) {
             signY = 1;
         }
-        console.log(xIntersect + "," + yIntersect);
-        console.log(line1);
-        console.log(line2);
         //Check if the X part of the intersection is within the bounds of line2.
         if ((line2.angle == 90 || line2.angle == 270) || 
             (signX*(line2.startx+xDiff2) >= signX*xIntersect 
