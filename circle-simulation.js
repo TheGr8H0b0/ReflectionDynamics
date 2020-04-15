@@ -6,6 +6,7 @@ circleCanvas.width = circleCanvas.height + 100;
 const maxLen = 1;
 let numZeroDistCollisions = 0;
 const roundValue = 1000000000;
+const roudValueFrac = 0.00000001;
 let lines = []; // Holds all of the lines being created.
 
 
@@ -249,7 +250,7 @@ const findIntersection = (movingLine, staticLine) => {
     let xIntersect = detx / det;
     let yIntersect = dety / det;
 
-    if (getDistance(movingLine.startx, movingLine.starty, xIntersect, yIntersect) < 0.000000001) {
+    if (getDistance(movingLine.startx, movingLine.starty, xIntersect, yIntersect) < roudValueFrac) {
         numZeroDistCollisions++;
     }
     yDiffS = staticLine.endy - staticLine.starty;
@@ -275,24 +276,24 @@ const findIntersection = (movingLine, staticLine) => {
 
 
     // Check if the intersection occurs above the start point if the angle is <= 180 degrees
-    if (Math.sin(movingLine.angle*(Math.PI/180)) >= 0 && yIntersect + 0.000000001 >= movingLine.starty) {
+    if (Math.sin(movingLine.angle*(Math.PI/180)) >= 0 && yIntersect + roudValueFrac >= movingLine.starty) {
         //Checks if the intersection occurs in the positive x direction if angle is <= 90 OR >= 270 degrees.
-        if (Math.cos(movingLine.angle*(Math.PI/180)) >= 0 && xIntersect + 0.000000001 >= movingLine.startx) {
+        if (Math.cos(movingLine.angle*(Math.PI/180)) >= 0 && xIntersect + roudValueFrac >= movingLine.startx) {
             //Return the coordinates of the valid intersection
             return {x2: xIntersect, y2: yIntersect};
             //Checks if the intersection occurs in the negative x direction if the 90 < angle < 270 degrees.
-        } else if (Math.cos(movingLine.angle*(Math.PI/180)) < 0 && xIntersect - 0.000000001 <= movingLine.startx) {
+        } else if (Math.cos(movingLine.angle*(Math.PI/180)) < 0 && xIntersect - roudValueFrac <= movingLine.startx) {
             //Return the coordinates of the valid intersection
             return {x2: xIntersect, y2: yIntersect};
         }
         //Check if the intersection occurs below the start point if the angle is > 180 degrees
-    } else if (Math.sin(movingLine.angle*(Math.PI/180)) < 0 && yIntersect - 0.000000001 <= movingLine.starty) {
+    } else if (Math.sin(movingLine.angle*(Math.PI/180)) < 0 && yIntersect -roudValueFrac <= movingLine.starty) {
         //Checks if the intersection occurs in the positive x direction if angle is <= 90 OR >= 270 degrees.
-        if (Math.cos(movingLine.angle*(Math.PI/180)) >= 0 && xIntersect + 0.000000001 >= movingLine.startx) {
+        if (Math.cos(movingLine.angle*(Math.PI/180)) >= 0 && xIntersect + roudValueFrac >= movingLine.startx) {
             //Return the coordinates of the valid intersection
             return {x2: xIntersect, y2: yIntersect};
             //Checks if the intersection occurs in the negative x direction if the 90 < angle < 270 degrees.
-        } else if (Math.cos(movingLine.angle*(Math.PI/180)) < 0 && xIntersect - 0.000000001 <= movingLine.startx) {
+        } else if (Math.cos(movingLine.angle*(Math.PI/180)) < 0 && xIntersect - roudValueFrac <= movingLine.startx) {
             //Return the coordinates of the valid intersection
             return {x2: xIntersect, y2: yIntersect};
         }
